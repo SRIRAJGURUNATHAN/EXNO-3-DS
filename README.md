@@ -1,4 +1,4 @@
-# EX NO:3-Feature Encoding and Transformation
+## Ex.No:3 Feature Encoding and Transformation
 
 ## AIM:
 To read the given data and perform Feature Encoding and Transformation process and save the data to a file.
@@ -45,9 +45,6 @@ We use this categorical data encoding technique when the features are nominal(do
 • Yeojohnson method
 
 ## CODING AND OUTPUT:
-### Developed by : Priyanka.A
-### Reg No : 212222230113
-
 ```python
 
 import pandas as pd
@@ -55,7 +52,6 @@ df=pd.read_csv("Encoding Data.csv")
 df
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/12381f5d-89ba-489d-8d6c-91930b7cb65a)
-
 
 ```py
 from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
@@ -65,13 +61,11 @@ e1.fit_transform(df[["ord_2"]])
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/a0826cf9-8f9d-4844-8198-5808e9539fa5)
 
-
 ```py
 df['bo2']=e1.fit_transform(df[["ord_2"]])
 df
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/448447cf-f983-4fdb-a37b-54e517ed5572)
-
 
 ```py
 le=LabelEncoder()
@@ -88,7 +82,6 @@ df2=df.copy()
 enc=pd.DataFrame(ohe.fit_transform(df2[["nom_0"]]))
 ```
 
-
 ```py
 df2=pd.concat([df2,enc],axis=1)
 df2
@@ -96,13 +89,10 @@ df2
 
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/19d9c74d-8463-4ac3-afd4-d983418a8530)
 
-
-
 ```py
 pd.get_dummies(df2,columns=["nom_0"])
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/17b96833-f77a-4bfe-a9ee-d9f973d2a145)
-
 
 ```py
 pip install --upgrade category_encoders
@@ -114,21 +104,17 @@ df=pd.read_csv("data.csv")
 df
 ```
 
-
 ```py
 be=BinaryEncoder()
 nd=be.fit_transform(df['Ord_2'])
 df
 ```
 
-
 ```py
 dfb=pd.concat([df,nd],axis=1)
 dfb
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/ae9b507b-9516-4cee-baa6-f5542515581f)
-
-
 
 ```py
 from category_encoders import TargetEncoder
@@ -140,7 +126,6 @@ CC
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/60889044-c6c5-4df3-bf2f-66add4552f55)
 
-
 ```py
 import pandas as pd
 from scipy import stats
@@ -150,25 +135,20 @@ df
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/bd6620d9-48c8-4aee-a628-159e85a4214b)
 
-
 ```py
 df.skew()
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/a9e0fee1-451c-4885-8055-6b2baf5d5d08)
-
 
 ```py
 np.log(df["Highly Positive Skew"])
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/9d20113a-213b-447e-b70e-d5d5d4d73ba4)
 
-
 ```py
 np.reciprocal(df["Moderate Positive Skew"])
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/586c8338-b6a6-499b-8b51-ec4bc443583f)
-
-
 
 ```py
 np.sqrt(df["Highly Positive Skew"])
@@ -218,15 +198,12 @@ plt.show()
 ```
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/45da37db-b7e8-4866-bbcd-ff6b9b429557)
 
-
 ```py
 sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
 plt.show()
 ```
 
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/8d5490fa-4651-47c8-bd6f-d42bc6c8bb1c)
-
-
 
 ```py
 from sklearn.preprocessing import QuantileTransformer
@@ -239,8 +216,6 @@ plt.show()
 ```
 
 ![image](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/9cc1839f-34f1-47e5-a757-bb4540a4cd2f)
-
-
 
 ```py
 df["Highly Negative Skew_1"]=qt.fit_transform(df[["Highly Negative Skew"]])
@@ -269,11 +244,7 @@ plt.show()
 sm.qqplot(df["Highly Negative Skew_1"],line='45')
 plt.show()
 ```
-
 ![319878540-d5c66705-7e21-4a6b-8bc7-a9e1ca23ae85](https://github.com/PriyankaAnnadurai/EXNO-3-DS/assets/118351569/f0d0c362-034d-4938-8b05-9dcddd9c94b6)
-
-
-
 
 ## RESULT:
 Thus the given data, Feature Encoding, Transformation process and save the data to a file was performed successfully.
